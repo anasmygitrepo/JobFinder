@@ -1,0 +1,411 @@
+/* Registration Form *************************************************************************/
+/* Import Google font - Poppins */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+label{
+  font-size: bold;
+  color: #1b1a1a;
+}
+
+form{
+  height: 400px;
+}
+
+.freshExp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  
+}
+.freshExp input{
+  margin-left: 250px;
+}
+a{
+  text-decoration: none;
+  color: rgb(16, 16, 100);
+  cursor: pointer;
+}
+
+.progress{
+    width: 100%;
+    height:4px;
+    margin-top: 2%;
+}
+.progress-bar{
+    background-color: rgb(130, 106, 251);
+}
+.regmain{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  
+
+
+}
+.body-background {
+    
+  background-image: linear-gradient(rgb(255, 255, 255), rgba(233, 238, 240, 0.596));
+  
+}
+
+.Reg_form_1{
+  padding: 34px 0px;
+    
+}
+.container {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  max-height: 100%;
+  background: #fff;
+  align-items: center;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.flag{
+  width: 50px;
+}
+
+.container header {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+}
+
+.form .input-box {
+  width: 100%;
+  margin-top: 17px;
+}
+.input-box label {
+  color: #333;
+}
+.form :where(.input-box input, .select-box) {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0 15px;
+}
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+.form .gender-box {
+  margin-top: 20px;
+}
+.gender-box h3 {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.form :where(.gender-option, .gender) {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+.form .gender {
+  column-gap: 5px;
+}
+.gender input {
+  accent-color: rgb(130, 106, 251);
+}
+.form :where(.gender input, .gender label) {
+  cursor: pointer;
+}
+.gender label {
+  color: #707070;
+}
+.address :where(input, .select-box) {
+  margin-top: 15px;
+}
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #707070;
+  font-size: 1rem;
+}
+.Reg_form_1 button {
+  height: 40px;
+  width: 15%;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(130, 106, 251);
+}
+.form button:hover {
+  background: rgb(76, 43, 241);
+}
+.btns button:hover{
+  background: rgb(76, 43, 241);
+}
+
+.btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btns a{
+  margin-top: 40px;
+  color: #707070;
+}
+/*Responsive*/
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+  .form :where(.gender-option, .gender) {
+    row-gap: 15px;
+  }
+  #firtsnext:hover{
+    background: rgb(76, 43, 241);
+  }
+}
+
+.Reg_form_1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* vh stands for viewport height */
+  }
+  
+  svg{
+      color: #707070;
+      cursor: pointer;
+  }
+
+
+/* 
+  //Ng select.......................................................................... */
+
+.auto-container{
+  width: 100%;
+  margin: auto;
+
+}
+
+
+.ng-select .ng-select-container {
+  min-height: 20px;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 20px;
+}
+::ng-deep .ng-select .ng-select-container , ::ng-deep .ng-select.ng-select-single .ng-select-container{
+  min-height: 38px;
+  border-color: #ddd;
+}
+::ng-deep .ng-select-container {
+  height: 38px !important;
+}
+
+/* //file upload................................................................. */
+
+.input-box_1{
+  display:  flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper_1{
+  width: 600px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.upload_field{
+  height: 100px;
+  border-radius: 5px;
+  border: 2px dashed #6990f2;
+  display:  flex;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.upload_field i,p{
+  color: #6990f2;
+}
+.upload_field i{
+  font-size: 50px;
+}
+.upload_field p{
+  font-size:  16px;
+  margin-top: 10px;
+}
+
+
+
+section .row{
+  background: #f4f5f7;
+  margin-bottom: 10px;
+  list-style: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section .row i{
+  font-size: 30px;
+  color: #6990f2;
+
+}
+
+.progress-aria .row .content{
+  width: 100%;
+  margin-left: 15px;
+}
+
+.progress-aria .detail{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+
+.Upload-area .row .content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-left: 15px;
+}
+
+
+section .details span{
+  font-size: 14px;
+}
+
+.progress-aria .progress-bar{
+  height: 6px;
+  width: 100%;
+  background: #fcfbfb;
+  margin-bottom: 4px;
+  border-radius: 30px;
+}
+
+
+
+
+.progress-bar .progress{
+  height: 100%;
+  width: 150%;
+  background-color:#6990f2;
+}
+
+
+/* .progress-aria .details{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+/* //............................................................................. */
+
+.EducationBTN label{
+  padding: 10PX;
+  border-radius: 20px;
+  margin-left: 7px;
+  margin-top: 8px;
+  border-color: #ddd;
+  
+}
+.EducationBTN label:hover{
+  color: rgb(90, 90, 192);
+}
+
+.ng-select.ng-select-single .ng-select-container:focus{
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+
+.donate-now {
+  list-style-type: none;
+  margin: 25px 0 0 0;
+  padding: 0;
+}
+
+.donate-now li {
+  float: left;
+  margin: 0 5px 0 0;
+  width: 200px;
+  height: 55px;
+  position: relative;
+  border: 1px solid rgb(253, 253, 253);
+  border-radius: 18px;
+  
+}
+
+.donate-now label,
+.donate-now input {
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgb(245, 244, 244);
+  border-radius: 18px;
+  text-align: center;
+  
+  
+}
+
+.donate-now input[type="radio"] {
+  opacity: 0.01;
+  z-index: 100;
+}
+
+.donate-now input[type="radio"]:checked+label,
+.Checked+label:hover{
+  background-color: rgb(178, 178, 204);
+
+}
+.donate-now label,
+.donate-now input:hover{
+  color: rgb(97, 97, 214);
+  cursor: pointer;
+}
+.donate-now label {
+  padding: 5px;
+  
+  cursor: pointer;
+  z-index: 90;
+}
+
+.donate-now label:hover {
+  background: #DDD;
+}

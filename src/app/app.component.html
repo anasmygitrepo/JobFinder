@@ -1,0 +1,41 @@
+<nav  class=" navbar navbar-expand-lg navbar-white bg-white ">
+  <div class="container">
+      <a class="navbar-brand" href="index.html">
+          <h3 >Job Finder <i  class="bi bi-person-walking"></i></h3>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link  active" aria-current="page" routerLink="/Jobs">Jobs</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="">Companies</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" routerLink="">Services</a>
+              </li>
+
+          </ul>
+          <form class="d-flex">
+            
+            <i style="margin-right: 45px;color: rgb(51, 48, 48);" class="bi bi-bell-fill"></i>
+            <i style="margin-right: 60px;color: rgb(51, 48, 48);" class="bi bi-chat-left-text-fill"></i>
+            
+            
+              <a routerLink="/Login">Login</a>
+              <a style="margin-left: 30px;color: rgb(129, 129, 196);font-weight: bold;" routerLink="/Register" >SignUp</a>
+          </form>
+      </div>
+  </div>
+
+
+</nav>
+
+
+
+<router-outlet></router-outlet>

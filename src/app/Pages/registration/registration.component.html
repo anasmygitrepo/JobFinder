@@ -1,0 +1,448 @@
+
+
+
+<form  style="
+  height: auto;" class="container-fluid mt-0 body-background" >
+      <hr style="height: 40px;color: rgb(95, 90, 90);width: 100%;">
+    <div class="Reg_form_1" >
+        <section  class="container">
+          <div  class="progress  " style="position: absolute;
+          top: -12px;
+          left: 0px;">
+            <div 
+              class="progress-bar " 
+              role="progressbar" 
+              [style.width]="(currentStep / totalSteps) * 100 + '%'" 
+              [attr.aria-valuenow]="(currentStep / totalSteps) * 100" 
+              aria-valuemin="0" 
+              aria-valuemax="100"
+            ></div>
+          </div>
+            <p *ngIf="currentStep > 1" (click)="Back()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg></p>
+
+
+            <div class="form" *ngIf="currentStep === 1">
+            <h5 class="align-text-start mt-4">Personal Details</h5>
+              <div class="input-box">
+                <label class="required">Fist Name</label>
+                <input type="text" placeholder="Enter full name"  />
+              </div>
+              <div class="input-box">
+                <label   class="required">Last Name</label>
+                <input   type="text" placeholder="Enter Last name" required />
+              </div>
+              <div class="mt-0 input-box address">
+                <div class="column">
+                  <div  class="input-box">
+                    <label class="mb-1">Date of Birth</label> 
+                    <div class="auto-container" >
+                      <ng-select  placeholder="Day" class="w-20 custome" >
+                        <ng-option *ngFor="let item of Days" [value]="item.id">{{item.name}}</ng-option>
+                      </ng-select>
+                    </div>             
+                  </div>
+                  <div  class="input-box">
+                    <div class="auto-container mt-4" >
+                      <ng-select   placeholder="Month" class="w-20 custome" >
+                        <ng-option *ngFor="let item of Months" [value]="item.id">{{item.name}}</ng-option>
+                      </ng-select>
+                    </div>             
+                  </div>
+                  <div  class="input-box">
+                    <div class="auto-container mt-4" >
+                      <ng-select   placeholder="Year" class="w-20 custome" >
+                        <ng-option *ngFor="let item of years" [value]="item.id">{{item.name}}</ng-option>
+                      </ng-select>
+                    </div>             
+                  </div>
+                </div>
+              </div>
+              <div class="mt-3 mb-1">
+                <label >Gender</label>
+                <div  class="EducationBTN" role="" aria-label="Basic radio toggle button ">
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" >
+                  <label style="width: 100px;" class="btn btn-outline-secondary" for="btnradio1">Male</label>
+                  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                  <label style="width: 100px;" class="btn btn-outline-secondary" for="btnradio2">Feamle</label>
+                </div>
+              </div>
+
+
+
+              
+            </div>
+              <div class="form"  *ngIf="currentStep === 2">
+              <h5 class="align-text-start mt-4">Contact Details ?</h5>
+                <div class="input-box">
+                  <label>Phone number</label>
+                  <div  class="wrapper">
+                    <ngxs-intl-tel-input style="width: 10px;" [cssClass]="'custom'"
+                      [preferredCountries]="preferredCountries"
+                      [enableAutoCountrySelect]="false"
+                      [enablePlaceholder]="true"
+                      [searchCountryFlag]="true"
+                      [searchCountryField]="[SearchCountryField.All]"
+                      [selectFirstCountry]="false"
+                      [selectedCountryISO]="CountryISO.UnitedArabEmirates"
+                      [maxLength]="15"
+                      [phoneValidation]="true"
+                      [separateDialCode]="separateDialCode"
+                      name="phone"
+                      >
+                    </ngxs-intl-tel-input>
+                  </div>
+                  <div class="input-box">
+                    <label   class="required">Email</label>
+                    <input style="height: 45px;"  type="email" placeholder="Enter email address" required />
+                  </div>
+                </div>
+              </div>
+
+
+
+              
+              <div class="form" *ngIf="currentStep === 3">
+                <h5 class="align-text-start mt-4">Where are you From ?</h5>
+                <span style="font-size: x-small;">This helps to find you nearest jobs</span>
+                <div *ngIf="!Countrychange" style="display: flex;flex-direction: row;justify-content: space-between;" class="input-box">
+                  <label>Country</label>
+                  <a style="color: rgb(78, 78, 145);" (click)="ChangeCounry()"  >Change</a>
+                </div>
+                <small style="padding-top: 20px;">United Arab Emirates</small>
+                <div *ngIf="Countrychange" class="input-box">
+                  <label class="required">Country</label> 
+                  <div class="auto-container" >
+                    <ng-select class="w-20 custome" >
+                      <ng-option *ngFor="let item of Countrys" [value]="item.id">{{item.name}}</ng-option>
+                    </ng-select>
+                  </div>             
+                </div>
+                <div class="input-box">
+                  <label>Street Address</label>
+                  <input  type="text" placeholder="Enter street"  />
+                </div>
+                <div class="input-box">
+                  <label   class="required">City,State</label>
+                  <div class="auto-container" >
+                    <ng-select class="w-20 custome" >
+                      <ng-option *ngFor="let item of States" [value]="item.id">{{item.name}}</ng-option>
+                    </ng-select>
+                  </div> 
+                </div>
+                <div class="input-box">
+                  <label>Postal code</label>
+                  <input type="text" placeholder="Enter postal,code" />
+                </div>
+              </div>
+
+              <div class="" *ngIf="currentStep === 4">
+                <div class="container input-box mt-4 ">
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;" class="input-box">         
+                    <label><i style="margin-right: 20px;font-size: larger;" class="bi bi-briefcase-fill"></i> I have Work Experiance</label>
+                    <div class="form-check">
+                      <input  [value]="6" [(ngModel)]="CurrentStatus" checked style="height: 25px;width: 25px;"  class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    </div>        
+                  </div>
+                    <div style="display: flex;flex-direction: row;justify-content: space-between;" class="mt-4 input-box">
+                      <label><i style="margin-right: 20px;font-size: x-large;" class="bi bi-mortarboard-fill"></i>I have recently graduated</label>
+                      <div class="form-check">
+                        <input (change)="ExpFresh()"  [value]="5"[(ngModel)]="CurrentStatus" style="height: 25px;width: 25px;" class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+
+
+
+              <div class="Reg_form_1" *ngIf="currentStep === 5">
+                <section class="">
+                    <h5 class="align-text-start mt-0">Education Details</h5>
+                    <small>Fill your acadamic details</small>
+                    <div class="form">
+                      <label class="mb-0px mt-4">Level of education</label>
+                        <div class="mt-3 mb-1">
+                          <div class="EducationBTN" role="" aria-label="Basic radio toggle button ">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" >
+                            <label class="btn btn-outline-secondary" for="btnradio1">High school or equelent</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                            <label class="btn btn-outline-secondary" for="btnradio2">Bachelore degree</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+                            <label   class="btn btn-outline-secondary" for="btnradio3">Masters</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+                            <label   class="btn btn-outline-secondary" for="btnradio4">Diploma</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
+                            <label   class="btn btn-outline-secondary" for="btnradio5">Doctrate</label>
+                          </div>
+                        </div>            
+                      <div class="input-box mt-5">
+                        <label>Field of study </label> 
+                          <ng-select class="w-20 custome" >
+                            <ng-option *ngFor="let item of FieldOfStudy" [value]="item.id">{{item.name}}</ng-option>
+                          </ng-select>
+                      </div>
+                      <div class="input-box">
+                        <label>University or institution</label>
+                        <ng-select class="w-20 custome" >
+                          <ng-option *ngFor="let item of Universitys" [value]="item.id">{{item.name}}</ng-option>
+                        </ng-select>
+                      </div>
+                      <div  class="input-box">
+                        <label>Country</label> 
+                        <div class="auto-container" >
+                          <ng-select class="w-20 custome" >
+                            <ng-option *ngFor="let item of Countrys" [value]="item.id">{{item.name}}</ng-option>
+                          </ng-select>
+                        </div>             
+                      </div>
+                      <div class="input-box">
+                        <label  class="required">City,State</label>
+                        <div class="auto-container" >
+                          <ng-select class="w-20 custome" >
+                            <ng-option *ngFor="let item of States" [value]="item.id">{{item.name}}</ng-option>
+                          </ng-select>
+                        </div> 
+                      </div>
+                      <div class="input-box address">
+                        <label>Time period</label>
+                        <div style="display: flex;flex-direction: row;">
+                            <input style="width: 2px;height: 22px;" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <small style="margin-top: 14px;margin-left: 7px;border-radius: 1px;" class="form-check-label" for="flexCheckDefault">
+                              Currently Enrolling
+                            </small>
+                        </div>
+                        <div class="column">
+                          <div  class="input-box">
+                            <label>Start Date</label> 
+                            <div class="auto-container" >
+                              <ng-select  placeholder="Month" class="w-20 custome" >
+                                <ng-option *ngFor="let item of Months" [value]="item.id">{{item.name}}</ng-option>
+                              </ng-select>
+                            </div>             
+                          </div>
+                          <div  class="input-box">
+                            <div class="auto-container mt-4" >
+                              <ng-select   placeholder="Year" class="w-20 custome" >
+                                <ng-option *ngFor="let item of years" [value]="item.id">{{item.name}}</ng-option>
+                              </ng-select>
+                            </div>             
+                          </div>
+                        </div>
+                        <div class="column">
+                          <div  class="input-box">
+                            <label>End date</label> 
+                            <div class="auto-container" >
+                              <ng-select  placeholder="Month" class="w-20 custome" >
+                                <ng-option *ngFor="let item of Months" [value]="item.id">{{item.name}}</ng-option>
+                              </ng-select>
+                            </div>             
+                          </div>
+                          <div   class="input-box ">
+                            <div class="auto-container mt-4" >
+                              <ng-select   placeholder="Year" class="w-20 custome" >
+                                <ng-option *ngFor="let item of years" [value]="item.id">{{item.name}}</ng-option>
+                              </ng-select>
+                            </div>             
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </section>
+              </div> 
+              
+
+            <div *ngIf="currentStep === 6">
+              <section >
+                <h5 class="align-text-start mt-4">Add work experiance</h5>
+                  <div class="form">           
+                    <div  class="input-box mt-4">
+                      <label class="required">Designation </label> 
+                        <ng-select placeholder="" class="w-20 custome" >
+                          <ng-option *ngFor="let item of Desigantion" [value]="item.id">{{item.name}}</ng-option>
+                        </ng-select>
+                    </div>
+                    <div class="input-box">
+                      <label>Company</label>
+                      <input  type="text" placeholder="Enter comapny"  />
+                    </div>
+                    <div  class="input-box">
+                      <label>Country</label> 
+                      <div class="auto-container" >
+                        <ng-select class="w-20 custome" >
+                          <ng-option *ngFor="let item of Countrys" [value]="item.id">{{item.name}}</ng-option>
+                        </ng-select>
+                      </div>             
+                    </div>
+                    <div class="input-box">
+                      <label  class="required">City,State</label>
+                      <div class="auto-container" >
+                        <ng-select class="w-20 custome" >
+                          <ng-option *ngFor="let item of States" [value]="item.id">{{item.name}}</ng-option>
+                        </ng-select>
+                      </div> 
+                    </div>
+                    <div class="input-box address">
+                      <label>Time period</label>
+                      <div style="display: flex;flex-direction: row;">
+                          <input style="width: 2px;height: 22px;" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                          <small style="margin-top: 14px;margin-left: 7px;border-radius: 1px;" class="form-check-label" for="flexCheckDefault">
+                            I currently work here
+                          </small>
+                      </div>
+                      <div class="column">
+                      
+                        <div  class="input-box">
+                          <label>Start date</label> 
+                          <div class="auto-container" >
+                            <ng-select  placeholder="Month" class="w-20 custome" >
+                              <ng-option *ngFor="let item of Months" [value]="item.id">{{item.name}}</ng-option>
+                            </ng-select>
+                          </div>             
+                        </div>
+                        <div  class="input-box">
+                          <div class="auto-container mt-4" >
+                            <ng-select   placeholder="Year" class="w-20 custome" >
+                              <ng-option *ngFor="let item of years" [value]="item.id">{{item.name}}</ng-option>
+                            </ng-select>
+                          </div>             
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div  class="input-box">
+                          <label>End date</label> 
+                          <div class="auto-container" >
+                            <ng-select  placeholder="Month" class="w-20 custome" >
+                              <ng-option *ngFor="let item of Months" [value]="item.id">{{item.name}}</ng-option>
+                            </ng-select>
+                          </div>             
+                        </div>
+                        <div   class="input-box ">
+                          <div class="auto-container mt-4" >
+                            <ng-select   placeholder="Year" class="w-20 custome" >
+                              <ng-option *ngFor="let item of years" [value]="item.id">{{item.name}}</ng-option>
+                            </ng-select>
+                          </div>             
+                        </div>
+                      </div>
+                      <div  class="input-box_1 ">
+                        <div class="wrapper_1">
+                          <header class="mt-3">Up Loard cv</header>
+                          <div class="upload_field">
+                            <i style="font-size: x-large;" class="bi bi-cloud-arrow-up"></i>
+                            <p>Brows File to Upload</p>
+                          </div>
+                          <div  class="text-center">
+                            <small >Maximum file size 5 mb,file suppotrted pdf,docs,txt only</small>
+                          </div>
+                            <section hidden class="progress-aria">
+                              <li class="row">
+                                  <div class="content">
+                                    <div class="detail">
+                                      <i style="font-size: x-large;" class="bi bi-file-earmark-pdf"></i>
+                                      <span>File_01.file Uploading....</span>
+                                      <span class="percent">50%</span>
+                                    </div>
+                                      <div class="progress-bar">
+                                        <div class="progress">
+                                        </div>
+                                      </div>
+                                  </div>
+                              </li>
+                            </section>
+                            <section hidden class="Upload-area">
+                              <li class="row">
+                                <div class="content">
+                                  <i style="font-size: x-large;" class="bi bi-file-earmark-pdf"></i>
+                                  <div class="details">
+                                    <span>File_01.file Uploaded</span>
+                                    <span class="size">70 KB</span>
+                                  </div>
+                                  <i style="font-size: x-large;" class="bi bi-check2"></i>
+                                </div>
+                              </li>
+                            </section>
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+
+              </section>
+
+            </div>
+
+            <div *ngIf="currentStep === 7">
+              <section class="">
+                  <h5 class="align-text-start mt-4">Add your skills</h5>
+                  <small>Add your expert skill sets</small>
+                  <div class="form">
+                    <div class="input-box">
+                      <label>Skills</label>
+                          <ng-multiselect-dropdown
+                            name="skills"
+                            [placeholder]="''"
+                            [settings]="dropdownSettings"
+                            [data]="Skills"
+                            [(ngModel)]="selectedItems"
+                            (onSelect)="onItemSelect($event)"
+                            (onSelectAll)="onSelectAll($event)"
+                          >
+                          </ng-multiselect-dropdown>
+                    </div>
+                  </div>
+              </section>    
+            </div>
+          
+          
+          
+              <!-- footer -->
+            <div class="btns">
+              <a (click)="resetForm()" *ngIf="currentStep>1">StartOver</a>
+              <button style="width: 100px;"   class="btn btn-primary " (click)="nextStep()" >Next</button>
+            </div>
+            <div  class="text-center">
+              <small >@2024Jobfinder,Cokiees,Privacy</small>
+              <hr>
+            </div>
+           
+        </section>
+    </div>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    
+
+
+
+
+
+
+
+    
+    
+    
+</form> 
+
+    
+
+ 

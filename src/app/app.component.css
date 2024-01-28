@@ -1,0 +1,45 @@
+.required:after {
+    content:" *";
+    color: red;
+  }
+  
+  i{
+    font-size: larger;
+  }
+  
+  
+  input.ng-invalid.ng-touched{
+    border: red 1px solid;
+  }
+  select.ng-invalid.ng-touched{
+    border: red 1px solid;
+  }
+
+  h3{
+    font-size: larger;
+    font-weight: bolder;
+    color: rgb(86, 86, 214);
+    text-shadow: 1px solid gray;
+    font-family: sans-serif;
+    margin-right: 40PX;
+  }
+
+  i{
+    background:color(srgb rgb(78, 72, 72) rgb(92, 100, 92) rgb(104, 104, 114));
+    
+  }
+  #logo{
+    width: 90px;
+    height: 90px;
+    border: 1px solid gray;
+    border-color: transparent;
+    
+  }
+
+  .d-flex a{
+    text-decoration: none;
+    color: gray;
+  }
+  .navbar{
+    background-color: aqua;
+  }

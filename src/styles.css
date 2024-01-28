@@ -1,0 +1,144 @@
+
+
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+
+*{
+	margin: 0;
+	padding: 0;
+	
+}
+body {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	margin-top: 0px;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    /* background-image: linear-gradient(rgb(255, 255, 255), rgba(233, 238, 240, 0.596)); */
+
+}
+
+.wrapper {
+	margin-bottom: 20px;
+}
+
+
+
+.iti {
+	display: block !important;
+	margin-bottom: 20px;
+}
+
+.iti .dropdown-menu.country-dropdown {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-color: #c7cace;
+	margin-top: -1px;
+}
+
+.iti .iti__country-list {
+	box-shadow: none;
+	font-size: 14px;
+	margin-left: 0;
+	width: 244px;
+	max-height: 170px;
+}
+
+.iti__flag-container.open + input {
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+
+.iti .search-container input {
+	font-size: 14px;
+	border-color: #c7cace;
+	border-radius: 0;
+	padding: 5px 10px;
+}
+
+.iti .search-container input:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 479px) {
+	.iti .iti__country-list {
+		width: 88.7vw;
+	}
+}
+
+ngxs-intl-tel-input input {
+	height: 44px;
+	margin-bottom: 20px;
+	padding: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c7cace;
+	border-radius: 4px;
+	font-size: 18px;
+	width: 100%;
+}
+
+ngxs-intl-tel-input.ng-invalid.ng-touched input {
+	border: 1px solid #c0392b;
+}
+
+ngxs-intl-tel-input input:hover {
+	box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.24);
+}
+
+ngxs-intl-tel-input input:focus {
+	outline: none !important;
+	border-color: #3498db;
+	box-shadow: 0 0 0 0 #000;
+}
+
+ngxs-intl-tel-input input::-webkit-input-placeholder {
+	color: #bac2c7;
+}
+
+ngxs-intl-tel-input input:-ms-input-placeholder {
+	color: #bac2c7;
+}
+
+ngxs-intl-tel-input input::-ms-input-placeholder {
+	color: #bac2c7;
+}
+
+ngxs-intl-tel-input input::placeholder {
+	color: #bac2c7;
+}
+
+ngxs-intl-tel-input input[disabled] {
+	background-color: #e5eaf1;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+.required:after {
+	content:" *";
+	color: rgb(184, 44, 44);
+  }
+
+ 
+  
+  input.ng-invalid.ng-touched{
+	border: red 1px solid;
+  }
+  select.ng-invalid.ng-touched{
+	border: red 1px solid;
+  }
+ 
+
+  input:focus{
+	 border-bottom: 5px solid #3498db;
+	 border: 5px solid blue;
+	 box-shadow: 0 1px 0 rgba(41, 6, 240, 0.4);
+  }
+  input{
+	border:solid 1px #9b2727;
+  }
